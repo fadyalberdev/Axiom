@@ -1,0 +1,37 @@
+@startuml
+' Sources: frontend/src/app/admin/login/page.tsx; frontend/src/app/admin/dashboard/page.tsx; backend/app/admin/router.py
+skinparam backgroundColor #FFFFFF
+skinparam activity {
+  BackgroundColor #F4F6F9
+  BorderColor #2E74B5
+  FontColor #0B2545
+}
+start
+:Open admin login;
+:Submit admin username and password;
+if (Credentials valid?) then (Yes)
+  :Receive admin JWT;
+  :Open admin dashboard;
+  fork
+    :Review pending listings;
+    if (Meets policy and trust checks?) then (Approve)
+      :Set listing active;
+      :Notify owner;
+    else (Reject)
+      :Set listing rejected with reason;
+      :Notify owner;
+    endif
+  fork again
+    :Review fraud queue;
+    :Mark listing reviewed or keep under moderation;
+  fork again
+    :Manage users and verification badges;
+  fork again
+    :Manage agencies, projects, universities, and blog posts;
+  end fork
+  :Monitor bookings, notifications, and platform status;
+else (No)
+  :Show authentication error;
+endif
+stop
+@enduml

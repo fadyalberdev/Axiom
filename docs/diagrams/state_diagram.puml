@@ -1,0 +1,49 @@
+@startuml
+' Sources: backend/app/listings/router.py; backend/app/bookings/router.py; backend/app/subscriptions/plans.py; backend/app/subscriptions/lapse.py; backend/app/stripe_webhooks/router.py
+skinparam backgroundColor #FFFFFF
+skinparam state {
+  BackgroundColor #F4F6F9
+  BorderColor #2E74B5
+  FontColor #0B2545
+}
+
+state "Listing lifecycle" as Listing {
+  [*] --> Draft
+  Draft --> Pending : submit listing
+  Pending --> Active : admin approve or low fraud score
+  Pending --> Rejected : admin reject
+  Active --> PendingPayment : create PaymentIntent
+  PendingPayment --> Active : payment canceled/refunded
+  PendingPayment --> Booked : payment succeeded
+  Booked --> Active : vacate or completion
+  Active --> Sold : owner/admin closes sale
+  Active --> Rented : owner/admin closes rental
+  Active --> Paused : subscription cap exceeded
+  Paused --> Active : plan restored
+  Paused --> [*] : grace lapse deletion
+}
+
+state "Booking lifecycle" as Booking {
+  [*] --> IntentCreated
+  IntentCreated --> Paid : Stripe success
+  IntentCreated --> Canceled : Stripe canceled
+  Paid --> PendingConfirmation : booking row created
+  PendingConfirmation --> ActiveBooking : renter confirms
+  PendingConfirmation --> Refunded : refund before confirmation
+  ActiveBooking --> Completed : tenant vacates or lease ends
+  Refunded --> [*]
+  Completed --> [*]
+}
+
+state "Subscription lifecycle" as Subscription {
+  [*] --> Free
+  Free --> Trialing : start trial
+  Trialing --> Free : trial expires
+  Trialing --> ActivePaid : checkout
+  Free --> ActivePaid : checkout
+  ActivePaid --> PastDue : Stripe status
+  PastDue --> ActivePaid : payment recovered
+  ActivePaid --> Canceled : cancel/delete
+  Canceled --> Free : effective plan fallback
+}
+@enduml

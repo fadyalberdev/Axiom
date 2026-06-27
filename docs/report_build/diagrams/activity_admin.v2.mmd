@@ -1,0 +1,36 @@
+flowchart TD
+    start((Start))
+    login["Admin enters credentials"]
+    token{"Admin JWT valid?"}
+    deny["Reject request"]
+    dashboard["Load admin dashboard stats"]
+    queue{"Select work area"}
+    pending["Open pending approvals"]
+    review["Inspect listing, owner, and fraud score"]
+    decision{"Decision"}
+    approve["Set listing active and notify owner"]
+    reject["Set listing rejected with reason"]
+    fraud["Open fraud queue"]
+    fraudDecision{"Fraud review outcome"}
+    fraudClear["Clear score and activate listing"]
+    fraudReject["Reject suspicious listing"]
+    users["Manage users and seller verification"]
+    content["Manage agencies, projects, universities, and blog"]
+    commerce["Review bookings, transactions, and leads"]
+    persist["Persist changes in Supabase"]
+    notify["Create notification or admin audit result"]
+    finish((End))
+
+    start --> login --> token
+    token -- "No" --> deny --> finish
+    token -- "Yes" --> dashboard --> queue
+    queue --> pending --> review --> decision
+    decision -- "Approve" --> approve --> persist
+    decision -- "Reject" --> reject --> persist
+    queue --> fraud --> fraudDecision
+    fraudDecision -- "Legitimate" --> fraudClear --> persist
+    fraudDecision -- "Fraud" --> fraudReject --> persist
+    queue --> users --> persist
+    queue --> content --> persist
+    queue --> commerce --> persist
+    persist --> notify --> dashboard

@@ -1,0 +1,39 @@
+# Secrets / environment
+.env
+.env.*
+!.env.example
+!.env.local.example
+backend/.env
+frontend/.env.local
+
+# Local AI assistant/tooling state
+CLAUDE.md
+AGENTS.md
+.agents/skills/
+.claude/
+.code-review-graph/
+.codex/
+.jules/
+.planning/
+.playwright-mcp/
+.qwen/
+.superpowers/
+.worktrees/
+
+# Build artifacts / tooling output
+graphify-out/
+testsprite_tests/
+
+# Python
+__pycache__/
+*.py[cod]
+backend/venv/
+.pytest_cache/
+
+# Debug / local artifacts
+frontend/admin-login-debug.png
+logs/
+tmp/
+test-results/
+**/test-results/
+**/playwright-report/

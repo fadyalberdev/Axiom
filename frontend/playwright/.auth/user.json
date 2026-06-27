@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:3000",
+      "localStorage": [
+        {
+          "name": "sb-pgaqqseqwtgsuihbswnv-auth-token",
+          "value": "{\"access_token\":\"eyJhbGciOiJFUzI1NiIsImtpZCI6Ijc1ZWM2NzJhLTU4N2QtNDQ2NC04MzE0LTM4NzdlNzg2MWJhNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3BnYXFxc2Vxd3Rnc3VpaGJzd252LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJhZjEwNTQ2Zi1mZGZmLTQzYTAtYWVjMS1hMzRlZDUyMDlmNjgiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzgxODM0OTA4LCJpYXQiOjE3ODE4MzEzMDgsImVtYWlsIjoidGVzdHVzZXIxQGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiY291bnRyeV9jb2RlIjoiKzIwIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZ1bGxfbmFtZSI6IlRlc3R1c2VyMSIsImdlbmRlciI6Im1hbGUifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTc4MTgzMTMwOH1dLCJzZXNzaW9uX2lkIjoiMjk1MmIwNzUtYWQ3Ni00MzVlLTg1OTEtY2IwMTUxNjU3MzU4IiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.HCUBzJOaCLiXJ-FShJNPOgL_ipVSTPFi2eMJc1U4ICO6HoMJOOQOucI8hQgVenZFH5zJndYMcaaCr-xL-ejuDw\",\"token_type\":\"bearer\",\"expires_in\":3600,\"expires_at\":1781834908,\"refresh_token\":\"monaghy6pvvi\",\"user\":{\"id\":\"af10546f-fdff-43a0-aec1-a34ed5209f68\",\"aud\":\"authenticated\",\"role\":\"authenticated\",\"email\":\"testuser1@gmail.com\",\"email_confirmed_at\":\"2026-03-28T21:17:06.483889Z\",\"phone\":\"\",\"confirmed_at\":\"2026-03-28T21:17:06.483889Z\",\"last_sign_in_at\":\"2026-06-19T01:08:28.047016613Z\",\"app_metadata\":{\"provider\":\"email\",\"providers\":[\"email\"]},\"user_metadata\":{\"country_code\":\"+20\",\"email_verified\":true,\"full_name\":\"Testuser1\",\"gender\":\"male\"},\"identities\":[{\"identity_id\":\"bb926271-20ed-4508-8d95-2dc09e0fb2a4\",\"id\":\"af10546f-fdff-43a0-aec1-a34ed5209f68\",\"user_id\":\"af10546f-fdff-43a0-aec1-a34ed5209f68\",\"identity_data\":{\"email\":\"testuser1@gmail.com\",\"email_verified\":false,\"phone_verified\":false,\"sub\":\"af10546f-fdff-43a0-aec1-a34ed5209f68\"},\"provider\":\"email\",\"last_sign_in_at\":\"2026-03-28T21:17:06.471228Z\",\"created_at\":\"2026-03-28T21:17:06.471305Z\",\"updated_at\":\"2026-03-28T21:17:06.471305Z\",\"email\":\"testuser1@gmail.com\"}],\"created_at\":\"2026-03-28T21:17:06.436841Z\",\"updated_at\":\"2026-06-19T01:08:28.049361Z\",\"is_anonymous\":false},\"weak_password\":null}"
+        }
+      ]
+    }
+  ]
+}

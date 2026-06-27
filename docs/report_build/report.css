@@ -1,0 +1,127 @@
+@page {
+  size: A4;
+  margin: 22mm 18mm 20mm 18mm;
+}
+
+body {
+  color: #1f2933;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.45;
+}
+
+h1, h2, h3, h4 {
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+  margin: 0 0 10pt;
+}
+
+h1 {
+  font-size: 20pt;
+  margin-top: 0;
+  page-break-before: always;
+  text-align: center;
+}
+
+h2 {
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 15pt;
+  margin-top: 18pt;
+  padding-bottom: 4pt;
+}
+
+h3 {
+  font-size: 13pt;
+  margin-top: 14pt;
+}
+
+p {
+  margin: 0 0 8pt;
+  text-align: justify;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 10pt 0 14pt;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #cbd5e1;
+  padding: 5pt 6pt;
+  vertical-align: top;
+}
+
+th {
+  background: #edf2f7;
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  margin: 8pt auto 4pt;
+  max-height: 185mm;
+  max-width: 96%;
+}
+
+figcaption, .caption {
+  color: #4b5563;
+  font-size: 10pt;
+  margin: 0 0 12pt;
+  text-align: center;
+}
+
+.cover {
+  page-break-after: always;
+  text-align: center;
+}
+
+.cover h1 {
+  border: 0;
+  font-size: 28pt;
+  margin-top: 60pt;
+  page-break-before: avoid;
+}
+
+.center {
+  text-align: center;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+.front-page {
+  page-break-after: always;
+}
+
+.front-page h1 {
+  page-break-before: avoid;
+}
+
+.toc-grid {
+  columns: 2;
+  column-gap: 28pt;
+  font-size: 10.5pt;
+}
+
+.toc-grid li {
+  break-inside: avoid;
+  margin-bottom: 3pt;
+}
+
+.small {
+  font-size: 10pt;
+}
+
+.toc-list li {
+  margin-bottom: 4pt;
+}
+
+.note {
+  background: #f8fafc;
+  border-left: 4px solid #64748b;
+  margin: 10pt 0;
+  padding: 8pt 10pt;
+}

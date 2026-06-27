@@ -1,0 +1,33 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#E8EEF5'
+    primaryTextColor: '#0B2545'
+    primaryBorderColor: '#2E74B5'
+    lineColor: '#7A8797'
+    fontFamily: 'Arial'
+    fontSize: '13px'
+---
+gantt
+    title AXIOM V2 Graduation Project Plan
+    dateFormat YYYY-MM-DD
+    axisFormat %b %Y
+    tickInterval 1month
+    %% Source: docs/AXIOM_DEEP_OVERVIEW.md, docs/CODEBASE_STUDY.md, docs/ROADMAP.md
+    section Research and Planning
+    Problem research and old report review      :done, r1, 2025-10-01, 2025-11-15
+    Requirements and competitor analysis        :done, r2, 2025-11-01, 2025-12-15
+    section Product and UI
+    UX flows and visual system                  :done, u1, 2025-12-01, 2026-01-20
+    Next.js frontend pages                      :done, u2, 2026-01-10, 2026-04-30
+    Dashboard and admin console                 :done, u3, 2026-03-01, 2026-05-31
+    section Backend and Data
+    Supabase schema and RLS                     :done, b1, 2026-01-15, 2026-03-15
+    FastAPI routers and services                :done, b2, 2026-02-10, 2026-05-20
+    section AI and Trust
+    Ollama integration and embeddings           :done, a1, 2026-03-15, 2026-05-10
+    RAG search, recommendations, fraud checks   :done, a2, 2026-04-01, 2026-05-31
+    section Payments and Launch
+    Stripe bookings and subscriptions           :done, p1, 2026-05-01, 2026-06-12
+    Testing, documentation, deployment prep     :active, p2, 2026-05-20, 2026-06-20

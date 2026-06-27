@@ -1,0 +1,62 @@
+@startuml
+' Sources: frontend/src/app/layout.tsx; frontend/src/providers/Providers.tsx; frontend/src/lib/api.ts; backend/app/main.py; backend/app/database.py; backend/app/ai/ollama_client.py; backend/app/stripe_client.py; railway.toml; backend/Dockerfile
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam linetype ortho
+top to bottom direction
+skinparam component {
+  BackgroundColor #F4F6F9
+  BorderColor #2E74B5
+  FontColor #0B2545
+}
+skinparam database {
+  BackgroundColor #E8EEF5
+  BorderColor #1F4D78
+}
+
+actor "User/Admin Browser" as Browser
+rectangle "Next.js 16 frontend" as Frontend {
+  component "App Router pages" as Pages
+  component "React components" as Components
+  component "State and data layer" as StateLayer
+  component "Direct Supabase reads" as DirectReads
+}
+
+rectangle "FastAPI backend" as Backend {
+  component "Auth + profile dependencies" as Auth
+  component "Listings, dashboard, applications, leads" as CoreAPI
+  component "AI router + services" as AIRouter
+  component "Bookings + Stripe webhooks" as Bookings
+  component "Subscriptions + lapse worker" as Subs
+  component "Admin router" as AdminAPI
+  component "Uploads, content, universities, projects" as OtherRouters
+}
+
+rectangle "Supabase" as Supabase {
+  database "Auth" as SupabaseAuth
+  database "Postgres + pgvector" as Postgres
+  database "Storage" as Storage
+}
+
+rectangle "External/local services" as Services {
+  component "Ollama axiom-llm + embeddings" as Ollama
+  component "Stripe PaymentIntents + Checkout" as Stripe
+  component "Twilio Verify compatibility endpoints" as Twilio
+}
+
+Browser --> Pages
+Pages --> Components
+Components --> StateLayer
+StateLayer --> Backend : protected /api requests with JWT
+DirectReads --> Postgres : public read queries
+StateLayer --> SupabaseAuth : session and OAuth/OTP
+Backend --> SupabaseAuth : JWT/JWKS validation
+Backend --> Postgres : service role DB operations
+Backend --> Storage : signed upload URLs
+AIRouter --> Ollama : generate, chat, embed
+Bookings --> Stripe : PaymentIntent
+Subs --> Stripe : Checkout session
+Stripe --> Backend : webhook
+Auth --> Twilio : compatibility OTP endpoints
+@enduml

@@ -1,0 +1,1463 @@
+Faculty of Computer Science and Information Technology
+
+Broker Website
+
+Submitted by:
+
+# ID 1 42210130 2 42210128 3 42210137 4 42210165 5 42210106 6 42210101 7 42210136
+
+Name
+
+Baher Mohamed Shrouk Saber
+Youssef Mohamed Abanoub Attia Ehab Ashraf
+Abdelrahman Wael Fady Alber
+
+A dissertation submitted in partial fulfillment of the requirements for the degree of Bachelor of computer science and information technology
+
+Supervised by: Dr. Bahaa Mohamed
+
+Egypt 2025
+1
+
+Committee Report
+
+We certify we have read this graduation project report as examining committee,
+
+examine the student in its content and that in our opinion it its adequate as a project
+
+document for " Broker Website ".
+
+Chairman:
+
+Supervisor:
+
+Name:
+
+Name: Dr. Bahaa Mohamed
+
+Signature:
+
+Signature:
+
+Date: / /201
+
+Date: / /201
+
+Examiner:
+
+Name:
+
+Signature:
+
+Date: / /201
+
+2
+
+Intellectual Property Right Declaration This is to declare that the work under the supervision of Dr. Bahaa Mohamed having title " Broker Website" carried out in partial fulfillment of the requirements of Bachelor of Science in Computer Science is the sole property of Ahram Canadian University and the respective supervisor. It is protected under the intellectual property right laws and conventions. It can only be considered/ used for purposes like extension for further enhancement, product development, adoption for commercial/organizational usage, etc. with the permission of the University and respective supervisor. This above statement applies to all students and faculty members. Names: Baher Mohamed Shrouk Saber Youssef Mohamed Abanoub Attia Ehab Ashraf Abdelrahman Wael Fady Alber
+Supervisor: Dr. Bahaa Mohamed
+3
+
+Anti-Plagiarism Declaration This is to declare that the above publication produced under the supervision of Dr. Bahaa Mohamed having title " Broker Website " is the sole contribution of the author(s) and no part hereof has been reproduced illegally (cut and paste) which can be considered as Plagiarism. All referenced parts have been used to argue the idea and have been cited properly. We will be responsible and liable for any consequence if violation of this declaration is proven. Names: Baher Mohamed Shrouk Saber Youssef Mohamed Abanoub Attia Ehab Ashraf Abdelrahman Wael Fady Alber
+4
+
+Acknowledgement
+
+Table of Contents
+
+Abstract
+
+Table of contents
+
+List of figures
+
+List of tables
+
+List of abbreviations and acronyms
+
+Chapter 1: introduction
+
+1.1 Overview....................................................................................8
+
+1.2 Motivation..................................................................................8
+
+1.3 Objective ....................................................................................9
+
+1.4 Aim ...........................................................................................10
+
+1.5 Scope ..........................................................................................................10
+
+1.6 General constraints..........................................................................11
+
+1.7 Organization of the dissertation ........................................................................ ...12 Chapter 2 : Background and Previous work
+
+2.1 Background................................................................................ 14
+
+2.2 Previous work...............................................................................16
+
+Chapter 3 : planning and analysis
+
+3.1 Planning......................................................................................21
+
+3.1.1 Feasibility study and estimated cost ..............................21
+
+3.1.2 Gantt chart ..............................................................22
+
+3.2 Analysis and limitations of existing system..........................................23
+
+3.3 Need for new system......................................................................24
+
+3.4 Analysis of new system....................................................................25
+
+3.4.1 User Requirement.....................................25
+
+3.4.2 System Requirements.................................26
+
+3.4.3 Domain Requirements ................................27
+
+3.4.4 Functional Requirements.............................29
+
+3.4.5 Non- Functional Requirements.......................31
+
+3.5 Advantages of new system...............................................................33
+
+3.6 User characteristics........................................................................34
+
+5
+
+Chapter 4 : design 4.1 Design and Implementation Constraints...........................................37 4.2 Assumptions and dependencies.....................................................39 4.3 Risks and risk management......................................................... 40 4.4 Design of database ERD..............................................................42
+4.4.1 Entity Relationship Diagram.........................42 4.4.2 Mapping of Entity Relationship Diagram .........43 4.5 Class diagram..........................................................................44 4.6 Use case diagram......................................................................45 4.6.1 Primary Use-case Diagram.........................45 4.6.2 Use-case Scenarios....................................46 4.7 Activity diagram.........................................58 4.8 Sequence diagram........................................60 4.9 State diagram..............................................62 Chapter 5: Implementation 5.1 Software Architecture................................................................# 5.2 User Interface...........................................................................# 5.3 Results and Discussion................................................................# Chapter 6: Testing 6.1 Unit Testing .............................................................................# 6.2 Integration Testing.....................................................................# Conclusion..................................................................................# Future work.................................................................................# References.................................................................................. #
+6
+
+Chapter 1: Introduction
+7
+
+1.1 Overview
+In recent years, many students and expatriates in Egypt have faced challenges finding suitable housing due to the difficulty of locating reliable brokers or available apartments in new cities. Traditional methods often require physical visits, time-consuming searches, and dealing with intermediaries who may not always be trustworthy. These obstacles highlight the need for a digital platform that simplifies both the renting and buying processes, providing users with a more accessible and transparent housing experience.
+The proposed Broker Website serves as a comprehensive online solution that connects property owners, brokers, and seekers--whether they are looking to rent or purchase apartments--in an efficient and trustworthy way. Through a simple registration process, users can create accounts and choose their roles as brokers who list their properties, or seekers who wish to rent or buy. Once logged in, users can browse apartment listings that include detailed information such as price, location, property features, and ownership type (rent or sale), with advanced filtering options to refine search results.
+The system supports both private and shared housing, allowing users to find standard apartments for rent or sale, or shared units that cater especially to students and individuals relocating from other cities. In the shared housing section, the platform displays short profiles of current residents to help users identify compatible roommates and make informed decisions before contacting the property owner or broker.
+Additionally, the platform integrates an AI-powered assistant to enhance the overall experience. By analyzing user inputs such as preferred location, price range, apartment type, ownership preference (rent or buy), and the number of roommates, the AI refines search results and suggests the most suitable options. This intelligent feature helps users save time and effort, ensuring a faster, smarter, and more personalized experience when renting or purchasing properties online.
+1.2 Motivation
+Finding suitable housing has become an increasingly complex challenge for individuals in Egypt, especially students, workers relocating to new cities, and families searching for secure and affordable options. Traditional rental processes still depend on brokers, personal networks, or random online posts--methods that are often time-consuming, unreliable, and lacking transparency. These outdated practices make property searching stressful and inefficient, particularly as demand continues to rise across many cities.
+The introduction of Egypt's New Rental Law of 2025 has further emphasized the need for modern digital housing solutions. With the new law restructuring old rental contracts, redefining rent values, and setting clear timelines for contract termination, many tenants and property owners have entered a period of transition. This shift has pushed a
+8
+
+significant number of people to search for new accommodation or alternative housing arrangements. As a result, the demand for platforms that provide clarity, updated rental opportunities, and easier access to available units has noticeably increased--especially for those affected by the changes in long-term rental regulations.
+To address these challenges, the Broker Website was developed as a centralized, transparent, and user-friendly platform that simplifies the entire real estate experience. The system allows users to explore verified listings for rent or sale, communicate directly with owners or trusted brokers, and access detailed property information without relying on inconsistent traditional methods.
+What makes the platform especially relevant is its strong support for shared housing and shared units, which have become essential for students and individuals searching for affordable living options. The system enables users to browse shared rooms, understand occupant preferences, and match with suitable living arrangements--something missing from most current platforms in Egypt.
+Additionally, the integration of an AI-assisted recommendation system significantly enhances the search journey. Users can enter their preferences, and the system automatically suggests suitable properties--whether full apartments or shared units-- based on personalized criteria. This intelligent feature reduces search time, improves accuracy, and helps users make more confident housing decisions in a market undergoing legal and economic change.
+1.3 Objective
+· Design and develop a responsive, user-friendly online platform that connects renters, buyers, brokers, and property owners to simplify both apartment rental and purchase processes.
+· Implement secure registration, authentication, and identity verification mechanisms to build trust among users and prevent fraudulent listings or fake accounts.
+· Provide advanced search and filtering tools that allow users to refine results based on criteria such as price, location, apartment type, and ownership mode (rent or buy) for faster and more accurate matching.
+· Support shared housing options by enabling users to view limited resident profiles and choose compatible roommates, addressing the accommodation needs of students and expatriates.
+· Integrate an AI-assisted recommendation system that analyzes user preferences and requirements to generate personalized property suggestions and enhance decision-making efficiency.
+9
+
+· Ensure compliance with Egyptian cultural, regulatory, and data protection standards, while supporting bilingual accessibility (Arabic and English) to cater to a wider user base.
+· Enable scalable property listing and management features for brokers, owners, and institutions, with built-in analytics to monitor performance, track engagement, and drive continuous improvement of the platform.
+1.4 Aim
+The main aim of this project is to develop a comprehensive online real estate broker platform that simplifies and modernizes the process of renting and purchasing apartments in Egypt. The platform serves as a digital bridge connecting property owners, brokers, and seekers, reducing dependency on traditional intermediaries and minimizing the effort required for physical property searches. Through an intuitive and accessible interface, users can easily register, log in, and either list their properties for rent or sale, or browse available options according to their preferences.
+In addition, the system integrates an AI-powered assistant designed to enhance the user experience by generating accurate, efficient, and personalized property recommendations based on user input and preferences. The overall goal is to deliver a secure, intelligent, and user-friendly platform that promotes transparency, trust, and convenience within the Egyptian real estate market.
+1.5 Scope
+Functional Scope:
+The proposed system focuses on digitizing and modernizing the real estate process in Egypt by providing a centralized online platform that connects renters, buyers, brokers, and property owners. It enables users to register, authenticate, and select their roles--allowing brokers and owners to list their properties for rent or sale, while seekers can browse, filter, and apply for suitable options. The platform supports both private and shared housing, displaying essential property details such as price, location, type, and owner information. Additionally, an AI-assisted recommendation feature refines search results and suggests the most suitable rental or purchase opportunities based on user preferences.
+Technical Scope: The project is designed as a web-based application built with modern technologies to ensure scalability, performance, and data security. It utilizes a relational database to store user and property information, supported by secure login, encryption, and verification protocols to protect sensitive data. The system integrates AI models for intelligent
+10
+
+filtering and recommendation, and provides a bilingual (Arabic/English) interface for greater accessibility. Its modular architecture supports future enhancements, such as online payment gateways, and partnerships with real estate institutions or universities.
+User Scope:
+The platform primarily targets four key user groups: brokers, property owners, renters, and buyers, with optional integration for institutional partners such as universities. Brokers and owners can create verified accounts, list their properties for rent or sale, and manage listings efficiently. Renters and buyers can explore available properties, use advanced filters to narrow down options, and contact property owners or brokers directly through the platform. Institutional users can utilize specialized tools to list and manage dorms or affiliated student housing. This multi-user structure ensures inclusivity, flexibility, and scalability to accommodate various housing needs across Egypt's real estate market.
+1.6 General constraints
+Despite its potential benefits, the proposed system faces several constraints that must be carefully considered during its design and implementation phases. These limitations may influence the platform's performance, accuracy, and scalability. The main constraints are outlined below:
+· Dependence on User-Generated Content: The accuracy and reliability of property listings largely depend on the information submitted by brokers, owners, and users. Inaccurate or misleading data could affect trust and system credibility. Therefore, implementing strong verification and approval mechanisms is essential to maintain content quality.
+· AI Recommendation Limitations: The effectiveness of the AI-assisted recommendation feature relies on the quality and completeness of available data. Limited datasets or inconsistent user inputs may reduce the precision and relevance of generated property suggestions.
+· Infrastructure and Network Constraints: The system's performance and scalability depend on the quality of hosting infrastructure and internet connectivity. In regions with unstable or limited network coverage, user experience may be affected by slower response times or limited accessibility.
+· Data Security and Privacy: As the platform handles sensitive personal and property-related information, ensuring robust data protection is critical. Unauthorized access, data breaches, or misuse of information must be prevented through secure authentication, encryption, and database management practices.
+11
+
+· Geographical Limitation: The initial version of the system is designed exclusively for the Egyptian real estate market. Features such as international property listings, multi-currency support, or cross-border transactions are beyond the scope of the current implementation but may be considered for future expansions.
+1.7 Organization of the dissertation Chapter 1: Introduces the project and outlines its foundation, including the motivation, aims, objectives, scope, and general constraints that shape the overall direction of the study.
+Chapter 2: Presents the background and literature review, discussing related systems, previous research, and technological developments relevant to real estate platforms and AI-assisted solutions.
+Chapter 3: Focuses on system planning and analysis, describing both functional and non-functional requirements, along with workflow models and use case specifications.
+Chapter 4: Details the system design phase, including the architectural structure, database schema, and design diagrams that illustrate component interactions and data flow.
+Chapter 5: Covers the implementation phase, explaining the development tools, technologies, and integration process of system modules, as well as the challenges encountered during development.
+Chapter 6: Discusses testing and evaluation procedures, presenting test results, performance assessments, and concluding with key findings, limitations, and recommendations for future enhancements.
+12
+
+Chapter 2: Background and Previous work
+13
+
+2.1 Background
+The real estate market in Egypt has witnessed remarkable growth over the past decade, driven by rapid urban expansion, population increase, and government-led housing projects. Despite this progress, the process of renting or finding apartments remains largely traditional--relying on word of mouth, local agents, or physical visits. This manual approach often leads to inefficiencies, limited accessibility for newcomers, and high dependency on brokers who may not always offer transparent pricing or verified listings.
+Digital Transformation in Real Estate :
+In recent years, digital transformation has begun reshaping the real estate industry both globally and locally. Online platforms have enabled users to browse available properties, compare prices, and directly communicate with property owners or landlords. However, in Egypt, many individuals--especially students, workers relocating from other cities, and expatriates--still face major challenges when searching for accommodation remotely. The lack of trustworthy platforms and effective verification systems often results in misinformation, wasted time, and, in some cases, fraud.
+· Growing smartphone and internet penetration has enabled broader access to online property listings.
+· Users increasingly expect digital services that emphasize convenience, transparency, and trust.
+· Traditional broker models are becoming less effective for modern renters who prefer self-service solutions.
+Technological Advancements and Smart Systems :
+Technology--particularly Artificial Intelligence (AI)--is becoming a major driver in the modernization of property management. AI can analyze user behavior, preferences, and data patterns to provide personalized recommendations, improving the relevance and efficiency of property searches. Additionally, automation tools can streamline critical processes such as lead management, virtual tours, and tenant matching--features that most Egyptian platforms have yet to adopt.
+· AI and machine learning models enhance user experience through intelligent matching.
+· Automation tools reduce manual work for both property owners and administrators. · Data analytics help identify market trends and user needs more efficiently.
+14
+
+Cultural and Market-Specific Factors : The Egyptian real estate market is shaped by distinctive cultural and social dynamics that influence user behavior. Shared housing, for instance, is increasingly common among students and young professionals, yet few online platforms effectively support this model. Furthermore, Arabic-language interfaces, gender-based preferences in shared housing, and compliance with local cultural norms are essential for achieving user trust and adoption.
+· Rising demand for affordable shared housing among students and young professionals.
+· Strong preference for Arabic-based interfaces and localized listings. · Trust issues persist due to unverified listings and lack of clear regulation.
+Need for a Modernized Local Solution : Despite the presence of several property listing platforms, there remains a strong need for an intelligent, secure, and user-centered real estate system tailored specifically to Egypt's market conditions. A modern broker website integrating verification mechanisms, bilingual accessibility, and AI-driven personalization can effectively bridge this gap--allowing users to list, explore, and connect remotely with confidence.
+· Addresses current market pain points such as fraud, inaccuracy, and limited filtering. · Enables transparent interaction between property owners, brokers, and renters. · Establishes a scalable, data-driven foundation for future innovation and market
+adaptation.
+15
+
+2.2 Previous work Over the past decade, several digital platforms have emerged in Egypt's real estate market, aiming to simplify property discovery and reduce dependency on traditional brokers. These systems have introduced more accessibility and transparency compared to offline methods. However, most existing platforms still lack intelligent search features, verified user systems, and dedicated support for shared or student housing. The following review highlights some of the most widely used platforms, outlining their key strengths and limitations.
+Dubbizle Egypt (launched in 2011) : https://www.dubizzle.com.eg/ Dubbizle is one of the most popular online marketplaces in Egypt, providing an open platform for users to buy, sell, or rent properties. It enables quick communication between owners and renters but lacks proper regulation or verification measures.
+· Offers a wide variety of listings across Egypt, including apartments and houses. · Provides direct contact between owners and renters without intermediaries. · Lacks identity verification, which makes it vulnerable to fake or misleading posts. · Search filters are basic, and the system does not include personalized
+recommendations.
+Aqarmap (founded in 2010) : https://aqarmap.com.eg/ Aqarmap is a specialized real estate platform designed for Egypt and the Middle East. It focuses on professional listings through brokers and developers, offering valuable market insights and analytics. Despite its organized structure, it does not fully cater to ordinary renters or students seeking affordable housing.
+· Presents verified listings and detailed market insights, including property values. · Supports bilingual interface (Arabic/English) for better user accessibility. · Mainly targets agencies and investors, not individuals seeking affordable rentals. · Does not include shared housing or AI-based matching functionalities.
+16
+
+Property Finder Egypt (entered Egypt in 2013) : https://www.propertyfinder.eg/en/
+Property Finder is a regional platform that operates across multiple Middle Eastern countries, including Egypt. It offers a modern, user-friendly interface and advanced search filters but mainly focuses on premium and agency-managed listings.
+· Features high-quality property listings with detailed photos and agent profiles. · Includes responsive web and mobile designs for easier access. · Focuses on high-end or agency-managed properties, limiting affordability. · Lacks localized options for student accommodation or shared housing preferences.
+Bayut Egypt (launched in 2014) : https://www.bayut.eg/en/
+Bayut is a regional real estate portal that expanded its operations into Egypt in 2014 under the Emerging Markets Property Group (EMPG). It focuses on structured and professional property listings rather than open-user posts.
+· Features apartments, villas, and commercial listings from verified brokers. · More organized and supervised compared to marketplace apps. · High-quality property details but fewer casual/low-budget rentals. · Good filtering, but lacks AI personalization or smart matching.
+Sakneen (founded in 2019) https://sakneen.com/
+Sakneen is an Egyptian prop-tech startup launched in 2019 to digitize real estate browsing with modern visuals and developer partnerships.
+· Strong focus on buying new projects and compounds. · Provides 3D tours and verified developer listings. · Rental options exist but are very limited. · Search is advanced, but no personalized recommendation engine.
+Weetas Bahrain (launched in 2013) : https://www.weetas.com/
+Weetas is a Bahraini real estate platform launched in 2013 focusing on rentals and sales across Bahrain, with listings mainly provided by agencies.
+· Listings from professional agents, making it safer and more curated. · Covers apartments, villas, and offices across Bahrain. · Good filtering but lacks AI-based smart suggestions. · More formal than marketplace-style apps.
+17
+
+Student.com (founded in 2011) https://www.student.com/
+Student.com started in 2011 as a global marketplace dedicated solely to student accommodation near universities worldwide. · Focuses only on student housing (rooms, studios, shared units). · Listings are verified with secured payment options. · Provides support teams for student guidance. · Strong search tools but limited to student-only rentals.
+HousingAnywhere (founded in 2009) https://housinganywhere.com/
+HousingAnywhere launched in 2009 in Rotterdam, targeting international students, interns, and young professionals seeking medium-term rentals. · Identity verification and secure payments make it safer. · Great for cross-border relocations. · Better filtering than OLX but still no AI personalization. · Focus on youth mobility rather than local families.
+Uniplaces (founded in 2013) https://www.uniplaces.com/
+Uniplaces is a European student housing platform launched in 2013, offering verified and safe medium-term rentals. · Trusted landlords + secure booking system. · Covers rooms, shared apartments, and studios. · Good filtering but no deep personalization. · Not designed for normal family rentals.
+AmberStudent (founded in 2016) https://amberstudent.com/
+AmberStudent started in 2016 as a global student accommodation platform offering guaranteed bookings and matching support. · Provides curated student rooms and shared units worldwide. · Verified listings + safe payment workflows. · Recommendation matching exists but not full AI. · Focuses entirely on student housing.
+18
+
+Summary and Gaps :
+Although these platforms have significantly improved visibility and accessibility in the real estate market--whether local platforms like Dubbizle, Bayut Egypt, and Sakneen, or international ones such as Weetas, Student.com, HousingAnywhere, Uniplaces, and AmberStudent--they still fail to fully address the unique needs of users in Egypt's dynamic housing environment. Despite their reach and functionality, several critical gaps remain: · No platform offers an integrated AI assistant that helps users find suitable apartments or rooms based on personalized preferences. · Shared housing and gender-specific accommodation--highly demanded by students and young professionals--are poorly supported or completely absent. · Identity verification and fraud prevention are still weak, especially on open platforms like OLX, making users vulnerable to fake listings and scams. · Most platforms lack secure, unified communication channels, forcing users to rely on external apps where trust and safety cannot be guaranteed. · Rental options are fragmented across multiple platforms, with no single system tailored specifically to Egypt's cultural, legal, and economic context. · Older rental contract rules and recent changes in Egypt's 2025 Rental Law have created a growing need for a platform that helps users navigate housing transitions more smoothly.
+19
+
+Chapter 3: Planning and Analysis
+20
+
+3.1.1 Feasibility Study
+The proposed Broker Website addresses a major housing challenge faced by students, expatriates, and individuals moving across Egyptian cities. Traditional methods depend on unverified brokers, physical visits, and inconsistent information, making the search process slow and unreliable. By offering a centralized digital platform that displays apartments for rent or sale along with shared housing options and short resident profiles the system enhances transparency, reduces effort, and provides users with an organized and efficient way to find suitable accommodation.
+Economically, the project is highly feasible and affordable for a graduation-level system. The estimated cost is relatively low, covering only essential expenses such as domain registration, hosting, and basic deployment requirements, resulting in a total budget between 1,400 and 4,000 EGP. Using free and widely available technologies, along with relying on an external AI API rather than building a machine-learning model, minimizes financial risk while still delivering strong functionality and real value to users.
+From a technical and operational perspective, the system is straightforward to implement using HTML, CSS, and JavaScript for the frontend, PHP for backend development, and MySQL for data storage. This technology stack is stable, well-supported, and suitable for features like account management, property listings, shared-unit details, and intelligent search. Integrating an AI assistant through an external API keeps the platform lightweight and easy to maintain, while regular backups and simple verification processes ensure smooth daily operation. Overall, the platform is practical, manageable, and capable of solving a real housing problem in the Egyptian market.
+Estimated Cost (EGP) The estimated cost of developing and deploying the Broker Website is low and suitable for a student graduation project. The main expenses include domain registration (300­ 450 EGP per year), web hosting on a shared server (900­2,400 EGP per year), and optional AI API usage depending on the chosen provider (0­600 EGP). Additional minor costs may include design tools or testing needs (200­400 EGP). Overall, the total estimated cost ranges between 1,400 and 4,000 EGP, making the project economically feasible and manageable for a student team.
+21
+
+3.1.2 Gantt Chart
+
+Testing & Debugging AI Assistant Integration Backend Development Frontend Development
+Database Design UI/UX Design
+Requirements Gathering Plaining and Research 0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+DAYS TO COMPLETE
+
+22
+
+3.2 Analysis and limitations of existing system
+Analysis of Existing System:
+Existing real estate platforms--such as DUBBIZLE Egypt, Bayut Egypt, Sakneen, Weetas, Student.com, HousingAnywhere, Uniplaces, and AmberStudent--have contributed positively to improving accessibility within the housing market by offering various useful features.
+Wide Property Listings: Platforms like Dubbizle and Bayut provide large databases of rental and sale listings across different cities and price ranges.
+Direct Communication: Most websites allow direct contact between renters, owners, or brokers, helping users communicate quickly without traditional intermediaries.
+Basic Search Filters: Existing systems offer fundamental filtering options such as location, price range, property type, and furnishing status.
+Verified Listings (in some platforms): Platforms like Sakneen, Student.com, and AmberStudent offer partially verified or agency-managed listings for more reliability.
+Dedicated Student Housing (international platforms): Websites such as Student.com, Uniplaces, and AmberStudent specialize in student accommodation, providing options close to universities with secure booking processes.
+Broker/Agent Support: Platforms like Weetas and Bayut present professionally curated listings managed by certified agents.
+Online Property Browsing: Most systems allow users to view photos, descriptions, and general details without needing physical visits.
+Limitations of Existing System:
+Despite the features offered, current platforms still suffer from major drawbacks that prevent them from fully addressing the needs of users--especially students and locals in Egypt.
+Lack of AI Personalization: No platform provides AI-powered recommendations that match users with properties based on budget, location, preferences, or roommate compatibility.
+23
+
+Weak Verification & Fraud Risk: Platforms like DUBBIZLE lack strong identity verification, resulting in fake listings, misleading information, and scams.
+Poor Support for Shared Housing & Gender-Specific Options: Most platforms do not support roommate matching, shared-unit browsing, or gender-filtered listings--highly demanded by students and newcomers.
+Limited Transparency: Users often receive incomplete information regarding ownership, property condition, or contract expectations, leading to uncertainty and misinformation.
+No Smart Filtering or Behavioral Matching: Filters on existing platforms are basic and do not adapt to user behavior or learning preferences.
+Inadequate Safety and Secure Communication: Messaging is often external (WhatsApp, phone calls), meaning there is no secure, monitored communication environment.
+3.3 Need for new system
+Finding suitable housing in Egypt has become increasingly challenging, particularly for students, expatriates, and individuals relocating to new cities. Traditional methods--such as visiting brokers in person, relying on word-of-mouth, or browsing scattered classifieds--are often time-consuming, inefficient, and unreliable. Many users struggle to find trustworthy listings, updated rental prices, or compatible roommates, especially with the rising demand for affordable housing.
+The introduction of Egypt's New Rental Law of 2025 further increased the pressure on the housing market. As old rental contracts are restructured, rental values change, and timelines for contract termination become clearer, many tenants have been pushed to search for new accommodation. This shift created a noticeable spike in housing demand, highlighting the need for a digital system that provides variety, transparency, and easy access to updated rental opportunities.
+A new system is required to address these challenges by:
+Providing Comprehensive Listings
+Current methods lack a unified platform that offers reliable details about pricing, location, rental mode, and property features. The proposed system will present complete and verified listings, including options for shared units, which are essential for students and individuals seeking affordable living arrangements.
+24
+
+Improving Reliability and Trust By connecting seekers directly with verified property owners and trusted brokers, the platform reduces misinformation and protects users from fake or outdated listings--issues that have become more common as rental regulations shift. Expanding Accessibility An online platform allows users to browse apartments and shared rooms from anywhere, including newly relocated residents affected by the rental law changes. This makes the searching process easier, faster, and more accessible across different cities. Saving Time Through Smart Assistance Advanced search filters and an AI-powered assistant will help users quickly identify the most suitable properties--whether full apartments or shared units--reducing time, effort, and uncertainty in a rapidly evolving housing environment.
+3.4.1 User Requirement
+Account Creation: Users must be able to register and create an account, choosing their role as either a broker (who lists properties) or a seeker (who wants to rent or buy).
+Browse Listings: Users must be able to view apartment listings with detailed information including price, location, features, and ownership type (rent or sale).
+Search & Filter: Users must be able to search for apartments and apply filters such as price range, location, property type, and ownership preference to find suitable options quickly.
+Private & Shared Housing: Users must be able to view both private apartments and shared housing options. For shared housing, users must be able to see profiles of current residents to assess compatibility.
+AI-Powered Suggestions: Users must be able to receive personalized recommendations from the AI assistant based on their preferences, such as location, price, apartment type, ownership choice, and number of roommates.
+25
+
+Contact Property Owners/Brokers: Users must be able to contact property owners or brokers directly through the platform after identifying suitable apartments.
+3.4.2 System Requirement
+Software Requirement: Operating System: The system shall support Windows 10, Windows 11, or any modern Linux distribution. Web Browser: The system shall be compatible with modern web browsers including Chrome, Firefox, Safari, and Edge. Database Management: The system shall use MySQL for storing user accounts, property listings, and interactions. Backend Framework: The system shall use PHP for server-side operations and API management. Frontend Framework: The system shall use HTML, CSS, and JavaScript for user interface and interactions. AI Integration: The system shall include an AI assistant capable of analyzing user preferences to provide property recommendations. Security Software: The system shall implement authentication and encryption mechanisms to protect user data.
+Hardware Requirements:
+Processor: The system shall operate on a server with at least a quad-core processor.
+RAM: The system shall have at least 16 GB of RAM for smooth server performance and AI operations.
+Storage: The system shall provide a minimum of 500 GB storage to store property listings, user data, and AI model files.
+Network: The system shall have a high-speed internet connection for real-time updates and user interactions.
+Client Devices: The system shall be accessible via desktops, laptops, and mobile devices.
+26
+
+Backup System: The system shall include hardware or cloud-based backup solutions to prevent data loss.
+3.4.3 Domain Requirement
+1. Real Estate Market Rules
+Listings must comply with Egyptian property laws and regulations (ownership, rental contracts, subletting rules). Brokers and property owners must provide accurate property details (location, price, ownership type). Shared housing listings must respect local cultural norms (e.g., gender-based roommate preferences).
+2. Verification & Trust
+All brokers and property owners must undergo identity verification before posting listings. Property details must be validated to reduce fraud and misleading advertisements. The system must support legal documentation uploads (contracts, ownership proofs).
+3. Language & Accessibility
+The platform must support bilingual interfaces (Arabic and English) to serve both local and expatriate users. Listings must allow Arabic addresses and descriptions, while maintaining English translations for accessibility.
+27
+
+4. Housing Types & Cultural Constraints
+Must support private apartments and shared housing (common among students and expatriates). Shared housing profiles must include basic resident information (age, gender) to ensure compatibility. Listings must respect privacy laws -- no sensitive personal data beyond what is necessary.
+5. Financial & Transactional Rules
+Prices must be displayed in Egyptian Pounds (EGP). Rental and sale agreements must follow local financial regulations (e.g., deposits, payment terms). Future expansion may include payment gateway integration, but initial scope excludes online payments.
+6. Geographical Scope
+The system is initially limited to Egyptian cities only. International listings, multi-currency support, or cross-border transactions are out of scope for the current version
+28
+
+3.4.2 Functional Requirement
+
+Code FR001
+
+Name of Requirement User Registration
+
+FR002
+
+User Login
+
+FR003 FR004
+
+Profile Management
+Add Property Listing
+
+FR005
+
+Edit/Delete Property Listing
+
+FR006
+
+Browse Listings
+
+FR007
+
+Search & Filter
+
+Requirement Description
+The system shall allow users to register and create
+accounts, choosing their role as either broker or seeker. The system shall provide
+secure login and authentication for all users. The system shall allow users
+to update their profile information.
+The system shall allow brokers to add new property
+listings with all relevant details.
+The system shall allow brokers to edit or delete their existing property
+listings. The system shall allow users to view property listings with
+details including price, location, features, and
+ownership type. The system shall allow users to search and filter listings by location, price, property type, ownership preference, and number of roommates.
+
+Should/Must Must Must Should Must Should Must
+Must
+
+FR008
+
+Shared Housing Profiles
+
+The system shall display short profiles of current residents in shared housing
+listings.
+29
+
+Should
+
+FR009
+
+AI Recommendations
+
+The system shall provide AIpowered property
+suggestions based on user preferences and interactions.
+
+FR010
+
+Contact Broker/Owner
+
+The system shall allow users to contact property owners or brokers directly through
+the platform.
+
+FR011
+
+Notifications
+
+The system shall notify users about responses or updates regarding their inquiries.
+
+Should Must Should
+
+FR012
+
+Data Security
+
+The system shall ensure all user data, including personal
+details and property information, is securely
+stored.
+
+Must
+
+30
+
+3.4.3 Non-Functional Requirement
+
+1- Usability
+
+Code NR001
+
+Requirement Description
+The system shall have an intuitive and user-friendly interface that
+allows users to navigate easily and perform actions without prior training.
+
+Should/Must Must
+
+Comment
+
+2- Security
+
+Code NR002
+
+Requirement Description
+The system shall implement secure authentication, data encryption, and access control mechanisms to protect user information and property
+listings.
+
+Should/Must Must
+
+Comment
+
+3- Performance
+
+Code NR003
+
+Requirement Description
+The system shall provide fast response times, ensuring search
+queries and page loads are completed within 3 seconds under
+normal usage.
+
+Should/Must Must
+
+Comment
+
+31
+
+4-Reliability
+
+Code NR004
+
+Requirement Description
+The system shall operate without failure and ensure correct data processing for at least 99% of
+transactions.
+
+Should/Must Must
+
+Comment
+
+5- Availability
+
+Code NR005
+
+Requirement Description
+The system shall be available to users at least 99% of the time, excluding scheduled maintenance periods.
+
+Should/Must Must
+
+Comment
+
+6- Portability
+
+Code NR006
+
+Requirement Description
+The system should be accessible on multiple devices, including desktops, laptops, and mobile devices, without
+compatibility issues.
+
+Should/Must Should
+
+Comment
+
+7- Maintainability
+
+Code NR007
+
+Requirement Description
+The system should be designed to allow easy updates, bug fixes, and integration of new features with
+minimal disruption.
+
+Should/Must Should
+
+Comment
+
+32
+
+3.5 Advantages of new system
+Time Efficiency: The system allows users to search for and find suitable apartments quickly, reducing the need for physical visits and lengthy searches.
+Accessibility: Users can access property listings anytime and from anywhere using desktops or mobile devices.
+Transparency: Detailed property information, including prices, locations, and resident profiles for shared housing, ensures that users make informed decisions.
+Personalization: The AI-powered assistant provides tailored property recommendations based on user preferences, enhancing the user experience.
+Wide Reach: Both brokers and property owners can list their properties online, reaching a larger audience than traditional methods.
+Secure Communication: Users can safely contact property owners or brokers through the platform without sharing personal contact information publicly.
+Support for Shared Housing: The system specifically caters to students and expatriates looking for shared apartments, helping them find compatible roommates.
+Efficient Management: Brokers can easily manage multiple property listings, update information, and track inquiries efficiently.
+Cost-Effective: Reduces the time, effort, and resources spent on traditional property searching and renting processes.
+Scalability: The platform can handle a growing number of users, property listings, and AI functionalities as the system expands.
+33
+
+3.6 User characteristics 1. Seekers (Individuals looking to rent or buy apartments)
+
+Field Age Range
+
+Details
+Minimum 18 years old, mainly young adults, students, expatriates, and working professionals.
+
+Technical Skills
+
+Basic knowledge of using web browsers and mobile applications; system is intuitive for varying skill levels.
+
+Language Role Type Location
+
+Arabic and English; platform may support both languages.
+Seeker ­ looking to rent or buy apartments.
+Located across different cities in Egypt, often seeking housing in urban or newly developed areas.
+
+Device Usage
+Goals and Needs
+
+Access via desktops, laptops, and smartphones.
+Find suitable, affordable, and trustworthy housing efficiently, access clear information and options matching preferences.
+
+Interaction Frequency
+
+Regular interaction when searching for properties or communicating with brokers/owners.
+
+34
+
+2. Brokers / Property Owners
+
+Field Age Range
+
+Details
+25< years old, typically adults with professional experience in real estate or property management.
+
+Technical Skills
+
+Basic knowledge of using web applications; able to manage listings and respond to inquiries.
+
+Language Role Type Location
+
+Arabic and English; platform may support both languages.
+Broker/Property Owner ­ listing properties for rent or sale.
+Operating across different cities in Egypt, including urban and newly developed areas.
+
+Device Usage Goals and Needs
+
+Access via desktops, laptops, and smartphones.
+Efficiently manage and showcase property listings; reach a wide audience; respond to inquiries quickly.
+
+Interaction Frequency
+
+Regular interaction to update listings, monitor inquiries, and communicate with seekers.
+
+35
+
+Chapter 4 : design
+36
+
+4.1 Design and Implementation Constraints
+4.1.1 Technical Constraints
+· Server Performance and Load Handling: As a web-based platform, all user interactions, property searches, and AI-based recommendations are processed on the server side. The system must handle multiple concurrent users, especially during peak browsing times. Limited hosting resources may affect response time and system availability.
+· AI Recommendation Limitations: The accuracy of the AI-powered property recommendation system depends on the quality and completeness of user input data (location, budget, apartment type, and preferences). Incomplete or inaccurate data can reduce the effectiveness of personalized recommendations.
+· Internet Dependency: The Broker Website requires a stable internet connection for browsing listings, uploading property images, and receiving AI-based suggestions. Users in areas with poor connectivity may experience slower performance or limited access.
+· Browser and Device Compatibility: The system must function correctly across major web browsers (Chrome, Firefox, Edge, Safari) and on different devices (desktop, laptop, tablet, and mobile). User interface components, search filters, and listing displays must be responsive and consistent.
+· Database and Storage Constraints: The platform relies on a relational database to store user accounts, property listings, images, and shared housing profiles. Storage limits and database performance may restrict the number of listings and images that can be handled efficiently.
+37
+
+4.1.2 Regulatory and Legal Constraints
+· Data Privacy and Security: The system stores sensitive user data such as personal information, contact details, and property ownership records. It must comply with Egyptian data protection and privacy regulations, ensuring data encryption, secure authentication, and restricted access.
+· Real Estate Compliance: All property listings must follow Egyptian real estate laws, including correct representation of ownership, rental agreements, and pricing. False or misleading listings must be prevented through verification and moderation mechanisms.
+· Shared Housing and Cultural Regulations: Shared housing listings must respect cultural and social norms, such as gender-based preferences and privacy rules. User profiles in shared apartments must display only necessary information.
+4.1.3 Resource Constraints
+· Development Resources: The system is developed by a small student team, which limits the speed of development and the complexity of advanced features such as real-time messaging, payment systems, and automated verification. · Budget Limitations: The project is developed within a limited budget, which requires using low-cost domain services, shared web hosting, and open-source development tools. The website, database, and property images are hosted on affordable servers, which limits storage capacity, performance, and the number of users that can be supported. External AI APIs are used instead of building complex in-house AI models to reduce overall development and operational costs. · Time Constraints: The project must be completed within the academic semester, which limits the amount of testing, large-scale deployment, and advanced feature development. Therefore, the system focuses on implementing the essential functions such as user accounts, property listings, search and filtering, shared housing support, and AI-based recommendations.
+38
+
+4.2 Assumptions and Dependencies
+4.2.1 Assumptions
+· User Access to Internet and Devices: It is assumed that users (brokers, property owners, and seekers) have access to a modern web browser on a desktop, laptop, or mobile device with a stable internet connection to use the platform.
+· Accuracy of Property Information: The system assumes that brokers and property owners provide accurate and complete property details, including price, location, ownership type (rent or sale), and apartment features.
+· Image and Listing Format Compliance: It is assumed that uploaded property images and descriptions follow the required formats (e.g., JPEG, PNG) to ensure correct display on the website.
+· Availability of Hosting and AI Services: The system assumes continuous availability of web hosting services and external AI APIs used for search enhancement and property recommendations.
+4.2.2 Dependencies
+· Web Hosting and Database Services: The platform depends on third-party hosting providers to store the website, backend system, and MySQL database for users and property listings.
+· External AI APIs: The system relies on external AI services to generate personalized apartment and housing recommendations based on user preferences.
+· Internet Connectivity: Both users and servers must have stable internet connections to allow browsing, searching, and data exchange.
+· Verification and Moderation Processes: The system depends on administrative and verification processes to ensure the accuracy and legality of property listings and user accounts.
+· Legal and Regulatory Compliance: The operation of the platform depends on compliance with Egyptian real estate laws and data protection regulations.
+39
+
+4.3 Risks and Risk Management
+4.3.1 Technical Risks
+· Incorrect or Poor AI Recommendations: The AI-based recommendation system may generate inaccurate or irrelevant property suggestions due to incomplete user data or limited historical information.  Risk Treatment: Improve input validation, refine recommendation rules, and allow users to manually search and filter properties alongside AI suggestions.
+· Server Downtime and Performance Issues: The system may experience slow response times or downtime because of limited hosting resources or high user traffic.  Risk Treatment: Use reliable hosting services, apply database optimization, and perform regular system monitoring and backups.
+· Browser and Device Compatibility Issues: Users may face problems when accessing the platform through different browsers or mobile devices.  Risk Treatment: Apply responsive design and conduct cross-browser and device testing before deployment.
+4.3.2 Security and Privacy Risks
+· User Data Exposure: Sensitive information such as user profiles, contact details, and property data may be at risk of unauthorized access.  Risk Treatment: Use HTTPS, secure login mechanisms, encrypted storage, and access control policies.
+· Fraudulent or Fake Listings: Some users may submit misleading or fake property advertisements.  Risk Treatment: Implement user verification and listing approval processes before publishing properties.
+40
+
+4.3.3 Operational Risks · Low User Trust and Adoption: Users may hesitate to use the platform due to trust or usability concerns.  Risk Treatment: Introduce verified accounts, clear property information, and transparent communication features. · Limited Technical and Financial Resources: Budget and time constraints may delay development or restrict system improvements.  Risk Treatment: Use open-source tools, low-cost hosting, and phased development to focus on core features first.
+4.3.4 Ethical and Market Risks · Bias in Property Recommendations: The AI system may prefer certain areas or price ranges due to unbalanced data.  Risk Treatment: Review recommendation logic regularly and ensure diversity in listing data. · Over-Reliance on AI Suggestions: Users may depend too much on AI recommendations and ignore manual searching.  Risk Treatment: Clearly label AI results as suggestions and provide full manual search and filtering options.
+41
+
+4.4.1 Entity Relationship Diagram
+42
+
+4.4.2 Mapping of Entity Relationship Diagram
+43
+
+4.5 Class diagram
+44
+
+4.6.1 Primary Use-case Diagram
+45
+
+4.6.2 Use-case Scenarios
+
+Use Case Number : UC-U01
+
+Use Case Name :
+
+Register User
+
+Actors :
+
+Broker ­ Seeker ­ Admin
+
+Overview :
+
+Enables new users to create an account
+
+Related Use Cases : Manage Account
+
+Event (stimulus) :
+
+User Actions :
+Enters personal details and submits registration form
+
+System Action :
+Stores user data and creates account
+
+Exceptions :
+
+Email already exists, invalid data
+
+Comments :
+
+User selects role (Seeker/Broker)
+
+Use Case Number : UC-U02
+
+Use Case Name :
+
+Login
+
+Actors :
+
+Broker ­ Seeker ­ Admin
+
+Overview :
+
+Allows registered users to access the system
+
+Related Use Cases : Manage Account
+
+Event (stimulus) :
+
+User Actions :
+Enters email and password
+
+System Action :
+Authenticates and redirects user
+
+Exceptions :
+
+Wrong password, blocked account
+
+Comments :
+
+Session is created after login
+
+46
+
+Use Case Number : UC-U03
+
+Use Case Name :
+
+Search Apartments
+
+Actors :
+
+Seeker
+
+Overview :
+
+Allows seekers to search for available apartments
+
+Related Use Cases : Filter Apartments
+
+Event (stimulus) :
+
+User Actions :
+Enters search keywords
+
+System Action :
+Displays matching apartments
+
+Exceptions :
+
+No results found
+
+Comments :
+
+Basic search without filters
+
+Use Case Number : UC-U04
+
+Use Case Name :
+
+Filter Apartments
+
+Actors :
+
+Seeker
+
+Overview :
+
+Refines apartment search results
+
+Related Use Cases : Search Apartments
+
+Event (stimulus) :
+
+User Actions :
+Selects filter options
+
+Exceptions :
+
+Invalid filter values
+
+Comments :
+
+Filters include price, location, type
+
+System Action :
+Updates results list
+
+47
+
+Use Case Number : UC-U05
+
+Use Case Name :
+
+View Apartment Details
+
+Actors :
+
+Seeker
+
+Overview :
+
+Displays detailed information of a selected apartment
+
+Related Use Cases : Search Apartments
+
+Event (stimulus) :
+
+User Actions :
+Clicks on apartment listing
+
+System Action :
+Shows full apartment details
+
+Exceptions :
+
+Apartment not available
+
+Comments :
+
+Includes images and description
+
+Use Case Number : UC-U06
+
+Use Case Name :
+
+View Shared Residents
+
+Actors :
+
+Seeker
+
+Overview :
+
+Shows profiles of residents in shared units
+
+Related Use Cases : View Apartment Details
+
+Event (stimulus) :
+
+User Actions :
+Opens shared resident section
+
+System Action :
+Displays resident profiles
+
+Exceptions :
+
+No residents listed
+
+Comments :
+
+Limited profile info only
+
+48
+
+Use Case Number : UC-U07
+
+Use Case Name :
+
+Contact Broker
+
+Actors :
+
+Seeker
+
+Overview :
+
+communication with broker
+
+Related Use Cases : Send Inquiry
+
+Event (stimulus) :
+
+User Actions :
+Clicks contact broker
+
+Exceptions :
+
+Broker unavailable
+
+Comments :
+
+Messaging through system only
+
+System Action :
+Opens inquiry form
+
+Use Case Number : UC-U08
+
+Use Case Name :
+
+Send Inquiry
+
+Actors :
+
+Seeker
+
+Overview :
+
+Allows seekers to send inquiries about properties
+
+Related Use Cases : Contact Broker
+
+Event (stimulus) :
+
+User Actions :
+Writes and submits inquiry
+
+System Action :
+Saves inquiry and notifies broker
+
+Exceptions :
+
+Empty message
+
+Comments :
+
+Inquiry linked to property
+
+49
+
+Use Case Number : UC-U09
+
+Use Case Name :
+
+Ask AI
+
+Actors :
+
+Seeker
+
+Overview :
+
+Allows seekers to interact with AI assistant
+
+Related Use Cases : Generate Recommendations
+
+Event (stimulus) :
+
+User Actions :
+Enters question or request
+
+System Action :
+Sends request to AI
+
+Exceptions :
+
+AI service unavailable
+
+Comments :
+
+Optional feature
+
+Use Case Number : UC-U10
+
+Use Case Name :
+
+Enter Preferences
+
+Actors :
+
+Seeker
+
+Overview :
+
+Collects user preferences for recommendations
+
+Related Use Cases : Generate Suggestions
+
+Event (stimulus) :
+
+User Actions :
+Enters preferences
+
+System Action :
+Stores preferences
+
+Exceptions :
+
+Missing preferences
+
+Comments :
+
+Used by AI
+
+50
+
+Use Case Number : UC-U11
+
+Use Case Name :
+
+Generate Suggestions
+
+Actors :
+
+AI Assistant
+
+Overview :
+
+Generates apartment suggestions
+
+Related Use Cases : Enter Preferences
+
+Event (stimulus) :
+
+User Actions :
+Requests suggestions
+
+Exceptions :
+
+No matching results
+
+Comments :
+
+Non-persistent logic
+
+System Action :
+Analyzes preferences and listings
+
+Use Case Number : UC-U12
+
+Use Case Name :
+
+Manage Listings
+
+Actors :
+
+Broker
+
+Overview :
+
+Allows brokers to manage their listings
+
+Related Use Cases : Add Ads
+
+Event (stimulus) :
+
+User Actions :
+Opens listings dashboard
+
+System Action :
+Displays broker properties
+
+Exceptions :
+
+No listings found
+
+Comments :
+
+Broker-only
+
+51
+
+Use Case Number : UC-U13
+
+Use Case Name :
+
+Add Ads
+
+Actors :
+
+Broker
+
+Overview :
+
+Allows brokers to add new properties
+
+Related Use Cases : Manage Listings
+
+Event (stimulus) :
+
+User Actions :
+Enters property details
+
+Exceptions :
+
+Invalid data
+
+Comments :
+
+Requires admin approval
+
+System Action :
+Saves property pending approval
+
+Use Case Number : UC-U14
+
+Use Case Name :
+
+View Inquiries
+
+Actors :
+
+Broker
+
+Overview :
+
+Displays received inquiries
+
+Related Use Cases : Reply to Seeker
+
+Event (stimulus) :
+
+User Actions :
+Opens inquiry list
+
+Exceptions :
+
+No inquiries
+
+Comments :
+
+Ordered by date
+
+System Action :
+Shows inquiries
+
+52
+
+Use Case Number : UC-U15
+
+Use Case Name :
+
+Reply to Seeker
+
+Actors :
+
+Broker
+
+Overview :
+
+Allows broker to reply to inquiries
+
+Related Use Cases : View Inquiries
+
+Event (stimulus) :
+
+User Actions :
+Writes reply
+
+Exceptions :
+
+Message failed
+
+Comments :
+
+One-to-one communication
+
+System Action :
+Sends response
+
+Use Case Number : UC-U16
+
+Use Case Name :
+
+Verify Users
+
+Actors :
+
+Admin
+
+Overview :
+
+Verifies user identities
+
+Related Use Cases : Review Data
+
+Event (stimulus) :
+
+User Actions :
+Selects user
+
+Exceptions :
+
+Missing documents
+
+Comments :
+
+Admin-only
+
+System Action :
+Displays verification data
+
+53
+
+Use Case Number : UC-U17
+
+Use Case Name :
+
+Review Data
+
+Actors :
+
+Admin
+
+Overview :
+
+Reviews uploaded data
+
+Related Use Cases : Verify Users
+
+Event (stimulus) :
+
+User Actions :
+Opens documents
+
+Exceptions :
+
+File corrupted
+
+Comments :
+
+Manual review
+
+System Action :
+Displays files
+
+Use Case Number : UC-U18
+
+Use Case Name :
+
+Approve / Reject User
+
+Actors :
+
+Admin
+
+Overview :
+
+Approves or rejects user accounts
+
+Related Use Cases : Verify Users
+
+Event (stimulus) :
+
+User Actions :
+Chooses approve/reject
+
+Exceptions :
+
+Invalid action
+
+Comments :
+
+Final decision
+
+System Action :
+Updates user status
+
+54
+
+Use Case Number : UC-U19
+
+Use Case Name :
+
+Review Ads
+
+Actors :
+
+Admin
+
+Overview :
+
+Reviews submitted ads
+
+Related Use Cases : Approve Ads Listings
+
+Event (stimulus) :
+
+User Actions :
+Opens property details
+
+Exceptions :
+
+Missing data
+
+Comments :
+
+Required before publishing
+
+System Action :
+Displays property info
+
+Use Case Number : UC-U20
+
+Use Case Name :
+
+Approve Ads Listings
+
+Actors :
+
+Admin
+
+Overview :
+
+Approves ads for listing
+
+Related Use Cases : Review Ads
+
+Event (stimulus) :
+
+User Actions :
+Approves property
+
+Exceptions :
+
+Policy violation
+
+Comments :
+
+Includes validation
+
+System Action :
+Publishes property
+
+55
+
+Use Case Number : UC-U21
+
+Use Case Name :
+
+Manage Accounts
+
+Actors :
+
+Admin
+
+Overview :
+
+Manages system accounts
+
+Related Use Cases : Verify Users
+
+Event (stimulus) :
+
+User Actions :
+Modifies account status
+
+Exceptions :
+
+Unauthorized action
+
+Comments :
+
+Admin control panel
+
+System Action :
+Updates records
+
+Use Case Number : UC-U22
+
+Use Case Name :
+
+Analyze Listings
+
+Actors :
+
+AI Assistant
+
+Overview :
+
+Analyzes properties or shared units listings
+
+Related Use Cases : Generate Recommendations
+
+Event (stimulus) :
+
+User Actions :
+Triggers analysis
+
+System Action :
+Processes listing data
+
+Exceptions :
+
+AI error
+
+Comments :
+
+Background process
+
+56
+
+Use Case Number : UC-U23
+
+Use Case Name :
+
+Read User Preferences
+
+Actors :
+
+AI Assistant
+
+Overview :
+
+Reads stored user preferences
+
+Related Use Cases : Generate Recommendations
+
+Event (stimulus) :
+
+User Actions :
+Requests recommendations
+
+Exceptions :
+
+No preferences found
+
+Comments :
+
+Data-driven
+
+System Action :
+Retrieves preferences
+
+Use Case Number : UC-U24
+
+Use Case Name :
+
+Generate Recommendations
+
+Actors :
+
+AI Assistant
+
+Overview :
+
+Produces personalized recommendations
+
+Related Use Cases : Analyze Listings
+
+Event (stimulus) :
+
+User Actions :
+Requests recommendations
+
+System Action :
+Generates results
+
+Exceptions :
+
+No suitable matches
+
+Comments :
+
+AI-based logic
+
+57
+
+4.7 Activity diagram ( user )
+58
+58
+
+4.7 Activity diagram ( admin )
+59
+
+4.8 Sequence diagram
+60
+
+Admin Sequence diagram
+61
+
+4.9 State diagram
+62
+
+

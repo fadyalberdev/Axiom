@@ -1,0 +1,126 @@
+@startuml
+' Sources: docs/schema/001_v2_comprehensive_schema.sql; docs/schema/004_knowledge_chunks.sql; backend/sql/2026-05-15_all_new_features.sql; backend/sql/2026-05-29_payment_fees_model.sql; backend/sql/2026-05-30_owner_subscriptions.sql
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam shadowing false
+skinparam class {
+  BackgroundColor #F4F6F9
+  BorderColor #2E74B5
+  FontColor #0B2545
+}
+hide methods
+
+class profiles <<table>> {
+  +id uuid PK auth.users(id)
+  email text
+  role user_role
+  is_verified_seller boolean
+  phone text
+  lifestyle_preferences jsonb
+}
+
+class listings <<table>> {
+  +id uuid PK
+  owner_id uuid FK profiles.id
+  agency_id uuid FK agencies.id
+  project_id uuid FK projects.id
+  category listing_category
+  property_type property_type
+  status listing_status
+  price numeric
+  embedding vector
+}
+
+class agencies <<table>> {
+  +id uuid PK
+  owner_id uuid FK profiles.id
+  slug text UK
+  verified boolean
+}
+
+class projects <<table>> {
+  +id uuid PK
+  agency_id uuid FK agencies.id
+  slug text UK
+  status project_status
+}
+
+class housemates <<table>> {
+  +id uuid PK
+  listing_id uuid FK listings.id
+  name text
+  lifestyle jsonb
+}
+
+class listing_applications <<table>> {
+  +id uuid PK
+  listing_id uuid FK listings.id
+  applicant_id uuid FK profiles.id
+  status application_status
+  compatibility_score numeric
+}
+
+class favorites <<table>> {
+  +user_id uuid PK/FK
+  +listing_id uuid PK/FK
+}
+
+class bookings <<table>> {
+  +id uuid PK
+  listing_id uuid FK listings.id
+  renter_id uuid FK profiles.id
+  owner_id uuid FK profiles.id
+  status text
+  total_price numeric
+  stripe_payment_intent_id text UK
+}
+
+class payments <<table>> {
+  +id uuid PK
+  user_id uuid FK profiles.id
+  listing_id uuid FK listings.id
+  booking_id uuid FK bookings.id
+  kind text
+  status text
+}
+
+class subscriptions <<table>> {
+  +id uuid PK
+  user_id uuid FK profiles.id UNIQUE
+  plan subscription_plan
+  status text
+  ai_descriptions_used int
+}
+
+class knowledge_chunks <<table>> {
+  +id uuid PK
+  source_type text
+  source_id uuid
+  embedding vector
+}
+
+class leads <<table>> {
+  +id uuid PK
+  user_id uuid FK profiles.id
+  listing_id uuid FK listings.id
+  source text
+}
+
+profiles "1" --> "0..*" listings : owner_id
+profiles "1" --> "0..*" agencies : owner_id
+agencies "1" --> "0..*" projects : agency_id
+agencies "0..1" --> "0..*" listings : agency_id
+projects "0..1" --> "0..*" listings : project_id
+listings "1" --> "0..*" housemates : listing_id
+listings "1" --> "0..*" listing_applications : listing_id
+profiles "1" --> "0..*" listing_applications : applicant_id
+profiles "1" --> "0..*" favorites : user_id
+listings "1" --> "0..*" favorites : listing_id
+listings "1" --> "0..*" bookings : listing_id
+profiles "1" --> "0..*" bookings : renter_id/owner_id
+bookings "0..1" --> "0..*" payments : booking_id
+profiles "1" --> "0..*" subscriptions : user_id
+listings "1" --> "0..*" leads : listing_id
+listings "1" --> "0..*" knowledge_chunks : source_id
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+' Sources: frontend/src/app/admin/login/page.tsx; frontend/src/app/admin/dashboard/page.tsx; backend/app/admin/router.py; backend/app/stripe_webhooks/router.py
+skinparam backgroundColor #FFFFFF
+skinparam sequence {
+  ParticipantBackgroundColor #F4F6F9
+  ParticipantBorderColor #2E74B5
+  LifeLineBorderColor #7A8797
+}
+actor Admin
+participant "Admin dashboard" as FE
+participant "Admin FastAPI router" as API
+database "Supabase Postgres" as DB
+participant "Notification service" as Notify
+participant "Stripe webhook router" as StripeHook
+
+Admin -> FE: Submit admin login
+FE -> API: POST /api/admin/auth/login
+API --> FE: Admin JWT
+FE -> API: GET /api/admin/listings?status=pending
+API -> DB: Query pending listings and owner profiles
+DB --> API: Pending moderation queue
+API --> FE: Listing rows
+Admin -> FE: Approve listing
+FE -> API: PUT /api/admin/listings/{id}/approve
+API -> DB: Update status to active
+API -> Notify: Insert owner notification
+Notify -> DB: notifications row
+API --> FE: Updated listing
+FE --> Admin: Queue refreshes
+
+StripeHook -> DB: Payment/subscription status updates
+FE -> API: GET /api/admin/bookings
+API -> DB: Query operational booking view
+API --> FE: Booking/payment status data
+@enduml

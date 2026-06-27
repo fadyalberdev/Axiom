@@ -1,0 +1,172 @@
+@startuml
+!option handwritten true
+skinparam monochrome true
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName "Comic Sans MS"
+skinparam rectangle {
+  BackgroundColor #FFFFFF
+  BorderColor #000000
+  FontColor #000000
+  BorderThickness 2
+}
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #000000
+  FontColor #000000
+  BorderThickness 1.5
+}
+skinparam classAttributeIconSize 0
+skinparam ArrowColor #000000
+skinparam ArrowThickness 1.2
+hide circle
+hide methods
+
+rectangle "AXIOM Relational Mapping" {
+
+  class user {
+    <u>user_id</u>
+    full_name
+    email
+    gender
+    role
+    DOB
+  }
+
+  class user_phone <<MV>> {
+    <u>user_id (FK)</u>
+    <u>phone</u>
+  }
+
+  class Blog_post {
+    <u>Blog_id</u>
+    title
+    category
+    is_published
+    user_id (FK)
+  }
+
+  class Payment {
+    <u>Payment_id</u>
+    amount
+    status
+    payment_method
+    user_id (FK)
+  }
+
+  class Subscription {
+    <u>Subscription_id</u>
+    time_end
+    status
+    plan
+    user_id (FK)
+  }
+
+  class Listing {
+    <u>listing_id</u>
+    title
+    category
+    description
+    property_type
+    price
+    status
+    bathrooms
+    bedrooms
+    city
+    owner_id (FK)
+    project_id (FK)
+    agency_id (FK)
+    university_id (FK)
+  }
+
+  class listing_image <<MV>> {
+    <u>listing_id (FK)</u>
+    <u>image_url</u>
+  }
+
+  class Lead {
+    <u>lead_id</u>
+    source
+    contact_name
+    contact_phone
+    listing_id (FK)
+  }
+
+  class Housemate {
+    <u>housemate_id</u>
+    name
+    occupation
+    gender
+    listing_id (FK)
+  }
+
+  class KnowledgeChunk {
+    <u>knowledge_id</u>
+    source
+    chunk_text
+    listing_id (FK)
+  }
+
+  class Project {
+    <u>Project_id</u>
+    Title
+    description
+    start_price
+    status
+  }
+
+  class project_phone <<MV>> {
+    <u>Project_id (FK)</u>
+    <u>phone</u>
+  }
+
+  class Agency {
+    <u>Agency_id</u>
+    name
+    description
+    price
+    city
+  }
+
+  class agency_phone <<MV>> {
+    <u>Agency_id (FK)</u>
+    <u>phone</u>
+  }
+
+  class University {
+    <u>University_id</u>
+    name
+    description
+    type
+    city
+  }
+
+  class university_phone <<MV>> {
+    <u>University_id (FK)</u>
+    <u>phone</u>
+  }
+
+}
+
+' --- Relationships ---
+user --> Blog_post       : creates
+user --> Listing         : owns
+user --> Subscription    : has
+user --> Payment         : generates
+user --> user_phone      : phone*
+
+Listing --> Lead         : Generates
+Listing --> Housemate    : Contains
+Listing --> KnowledgeChunk : Generated from
+Listing --> listing_image : images*
+
+Project --> Listing      : contains
+Project --> project_phone : phone*
+
+Agency --> Listing       : contains
+Agency --> agency_phone  : phone*
+
+University --> Listing   : Near
+University --> university_phone : phone*
+
+@enduml

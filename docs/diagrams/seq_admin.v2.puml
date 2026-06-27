@@ -1,0 +1,61 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+title Admin Verification and Moderation Sequence
+
+actor Admin
+participant "Admin Dashboard" as UI
+participant "Admin API Router" as AdminAPI
+participant "Listings Router" as Listings
+participant "Subscription Service" as Subs
+database "Supabase" as DB
+participant "Notification Service" as Notify
+
+Admin -> UI: Sign in to admin dashboard
+UI -> AdminAPI: POST /api/admin/login
+AdminAPI -> DB: validate profile role equals admin
+DB --> AdminAPI: admin profile
+AdminAPI --> UI: admin token
+
+UI -> AdminAPI: GET /api/admin/stats
+AdminAPI -> DB: count users, listings, bookings, leads
+DB --> AdminAPI: dashboard metrics
+AdminAPI --> UI: stats and queues
+
+alt Listing approval
+  Admin -> UI: Approve pending listing
+  UI -> AdminAPI: POST /api/admin/listings/{id}/approve
+  AdminAPI -> DB: update listing status active, verified true
+  AdminAPI -> Notify: create listing_approved notification
+  Notify -> DB: insert notification
+  AdminAPI --> UI: approved listing
+else Listing rejection
+  Admin -> UI: Reject listing with reason
+  UI -> AdminAPI: POST /api/admin/listings/{id}/reject
+  AdminAPI -> DB: update listing status rejected
+  AdminAPI -> Notify: create listing_rejected notification
+  Notify -> DB: insert notification
+  AdminAPI --> UI: rejected listing
+else Fraud review
+  Admin -> UI: Review flagged listing
+  UI -> AdminAPI: POST /api/admin/fraud/review
+  AdminAPI -> DB: update fraud_score and listing status
+  AdminAPI --> UI: review result
+else Verify seller
+  Admin -> UI: Toggle seller verification
+  UI -> AdminAPI: PATCH /api/admin/users/{id}/verify
+  AdminAPI -> DB: update profiles.is_verified_seller
+  AdminAPI --> UI: updated profile
+else Subscription enforcement
+  AdminAPI -> Subs: pause_excess_for_user(user_id)
+  Subs -> DB: count active owner listings
+  Subs -> DB: mark over-cap listings paused
+  DB --> Subs: paused listing ids
+end
+
+UI -> Listings: GET /api/listings
+Listings -> DB: public reads active and unpaused listings
+DB --> Listings: visible marketplace
+Listings --> UI: updated public state
+@enduml

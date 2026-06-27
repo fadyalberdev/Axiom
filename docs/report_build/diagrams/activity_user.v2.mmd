@@ -1,0 +1,34 @@
+flowchart TD
+    start((Start))
+    home["Open AXIOM"]
+    search["Search listings or ask AI"]
+    results["Review active listings"]
+    detail["Open property detail"]
+    auth{"Logged in?"}
+    login["Sign up or log in with Supabase Auth"]
+    action{"Choose action"}
+    favorite["Save or remove favorite"]
+    whatsapp["Create lead and open WhatsApp"]
+    viewing["Request a viewing"]
+    rent{"Rent listing?"}
+    payment["Create Stripe PaymentIntent"]
+    stripe["Confirm card payment"]
+    webhook["Webhook or sync creates booking"]
+    shared{"Shared housing?"}
+    compat["Run compatibility check"]
+    apply["Submit shared-housing application"]
+    dashboard["Track favorites, listings, bookings, and applications"]
+    finish((End))
+
+    start --> home --> search --> results --> detail --> auth
+    auth -- "No" --> login --> detail
+    auth -- "Yes" --> action
+    action --> favorite --> dashboard
+    action --> whatsapp --> dashboard
+    action --> viewing --> dashboard
+    action --> rent
+    rent -- "Yes" --> payment --> stripe --> webhook --> dashboard
+    rent -- "No" --> shared
+    shared -- "Yes" --> compat --> apply --> dashboard
+    shared -- "No" --> whatsapp
+    dashboard --> finish
